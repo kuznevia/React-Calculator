@@ -1,6 +1,9 @@
 ### Linter Status:
 [![Actions Status](https://github.com/kuznevia/calc/workflows/Linter/badge.svg)](https://github.com/kuznevia/calc/actions)
 
+### Maintainability
+<a href="https://codeclimate.com/github/kuznevia/calc/maintainability"><img src="https://api.codeclimate.com/v1/badges/f660c37f4f9bf8076f59/maintainability" /></a>
+
 
 #######################################################################
 
