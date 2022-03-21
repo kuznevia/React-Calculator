@@ -1,3 +1,9 @@
+### Linter Status:
+[![Actions Status](https://github.com/kuznevia/calc/workflows/Linter/badge.svg)](https://github.com/kuznevia/calc/actions)
+
+
+#######################################################################
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
