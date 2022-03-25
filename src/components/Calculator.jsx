@@ -1,43 +1,50 @@
-import React, { useState, useRef } from 'react';
-import { useFormik } from 'formik';
+import React, {
+  useRef,
+  useEffect,
+  useContext,
+} from 'react';
 import { toast } from 'react-toastify';
 import ResultBox from './ResultBox.jsx';
 import Buttons from './Buttons.jsx';
+import { ApiContext } from '../contexts/ApiContextProvider.jsx';
 
 function Calculator() {
   const inputRef = useRef(null);
-  const [result, setResult] = useState('Начальное значение');
+  const {
+    calculate,
+    setResult,
+    text,
+    setText,
+  } = useContext(ApiContext);
 
-  const calculate = (values) => setResult(`It will calculate ${values}`);
+  useEffect(() => {
+    const messageInput = document.getElementById('inputBox');
+    messageInput.focus();
+  }, []);
 
-  const formik = useFormik({
-    initialValues: {
-      inputBox: '',
-    },
-    onSubmit: ({ messageBox }, actions) => {
-      if (messageBox === '') {
-        return;
-      }
-      try {
-        calculate(formik.values.inputBox);
-        actions.resetForm({
-          values: {
-            inputBox: '',
-          },
-        });
-        actions.setSubmitting(false);
-      } catch (error) {
-        toast.error('Connection Failed');
-      }
-      inputRef.current.focus();
-    },
-  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (text === '') {
+      return;
+    }
+    try {
+      const calculationResult = calculate(text);
+      setResult(calculationResult);
+    } catch (error) {
+      toast.error(error);
+    }
+    inputRef.current.focus();
+  };
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
 
   return (
-    <form className="calculator" onSubmit={(e) => { e.preventDefault(); formik.handleSubmit(e); }}>
-      <ResultBox result={result} />
-      <input id="inputBox" name="inputBox" className="border-0 p-0 px-2 form-control" ref={inputRef} value={formik.values.inputBox} onChange={formik.handleChange} disabled={formik.isSubmitting} />
-      <Buttons />
+    <form className="calculator" onSubmit={handleSubmit}>
+      <input id="inputBox" name="inputBox" className="inputBox" ref={inputRef} value={text} onChange={handleChange} />
+      <ResultBox />
+      <Buttons text={text} setText={setText} />
     </form>
   );
 }

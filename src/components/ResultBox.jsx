@@ -1,16 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import { ApiContext } from '../contexts/ApiContextProvider.jsx';
 
-function ResultBox({ result }) {
+function ResultBox() {
+  const { result } = useContext(ApiContext);
+
   return (
     <div id="result" className="result">
       {result}
     </div>
   );
 }
-
-ResultBox.propTypes = {
-  result: PropTypes.string.isRequired,
-};
 
 export default ResultBox;
