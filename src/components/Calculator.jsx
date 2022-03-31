@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import { toast } from 'react-toastify';
 import ResultBox from './ResultBox.jsx';
-import Buttons from './Buttons.jsx';
+import Buttons from './Buttons/index.jsx';
 import { ApiContext } from '../contexts/ApiContextProvider.jsx';
 
 function Calculator() {
@@ -31,6 +31,7 @@ function Calculator() {
       const calculationResult = calculate(text);
       setResult(calculationResult);
     } catch (error) {
+      console.log(error);
       toast.error(error);
     }
     inputRef.current.focus();
