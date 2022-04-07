@@ -5,8 +5,8 @@ function Buttons() {
   return (
     <div className="wrapper">
       <Button symbol="C" />
-      <Button symbol="&#8730;" />
-      <Button symbol="%" />
+      <Button symbol="(" />
+      <Button symbol=")" />
       <Button symbol="/" />
       <Button symbol="7" />
       <Button symbol="8" />
