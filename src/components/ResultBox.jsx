@@ -5,7 +5,7 @@ function ResultBox() {
   const { result } = useContext(ApiContext);
 
   return (
-    <div id="result" className="result">
+    <div data-testid="resultBox" id="result" className="result">
       {result}
     </div>
   );

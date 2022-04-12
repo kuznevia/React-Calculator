@@ -53,8 +53,6 @@ export function ApiContextProvider({ children }) {
   };
 
   const doMath = (parsedUserInput) => {
-    console.log('iteration');
-    console.log(parsedUserInput);
     const calculations = [
       { '*': (a, b) => a * b },
       { '+': (a, b) => a + b },
@@ -78,7 +76,6 @@ export function ApiContextProvider({ children }) {
         } else if (calculations[i][calculatedInput[j]]) {
           currentOp = calculations[i][calculatedInput[j]];
         } else if (currentOp) {
-          console.log(`${calculatedInput[j]} hello`);
           newCalc[newCalc.length - 1] = currentOp(
             (Number(newCalc[newCalc.length - 1])),
             Number(calculatedInput[j]),
@@ -87,7 +84,6 @@ export function ApiContextProvider({ children }) {
         } else {
           newCalc.push(calculatedInput[j]);
         }
-        console.log(newCalc);
       }
       calculatedInput = newCalc;
       newCalc = [];
@@ -96,7 +92,6 @@ export function ApiContextProvider({ children }) {
       console.log('Ошибка');
       return calculatedInput;
     }
-    console.log(calculatedInput[0]);
     return calculatedInput[0];
   };
 
