@@ -13,7 +13,7 @@ parserOptions:
 plugins:
   - react
   - '@typescript-eslint'
-  - 'jest/recommended'
+  - 'jest'
 rules: 
   no-console: 0
   import/extensions: 0

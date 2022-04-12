@@ -55,7 +55,9 @@ export function ApiContextProvider({ children }) {
   const doMath = (parsedUserInput) => {
     const calculations = [
       { '*': (a, b) => a * b },
+      { '/': (a, b) => a / b },
       { '+': (a, b) => a + b },
+      { '-': (a, b) => a - b },
     ];
     let calculatedInput = parsedUserInput;
     let newCalc = [];
