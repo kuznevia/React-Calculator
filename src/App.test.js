@@ -11,3 +11,5 @@ test('testing sum, 2+2+4', () => {
   const resultField = screen.getByTestId(/resultBox/i);
   expect(resultField.textContent).toBe('8');
 });
+
+
