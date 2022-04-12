@@ -9,29 +9,30 @@ export function ApiContextProvider({ children }) {
   const symbols = ['*', '/', '+', '-'];
   const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-  const prepare = (input) => {
-    while (input.includes('(')) {
-      const leftBracketIndex = input.indexOf('(');
-      const rightBracketIndex = input.indexOf(')');
-      const bracketArr = input.splice(leftBracketIndex, rightBracketIndex + 1);
-      bracketArr.pop();
-      bracketArr.shift();
-      input.push(bracketArr);
-      if (symbols.includes(input[0])) {
-        const symbol = input.shift();
-        input.push(symbol);
+  const parenthesesPreParse = (input) => {
+    const parsedInput = input.reduce((acc, element) => {
+      acc.push(element);
+      if (acc.includes('(') && acc.includes(')')) {
+        const leftBracketIndex = acc.indexOf('(');
+        const rightBracketIndex = acc.indexOf(')');
+        const newArr = acc.splice(leftBracketIndex, rightBracketIndex - leftBracketIndex + 1);
+        newArr.pop();
+        newArr.shift();
+        acc.push(newArr);
       }
-    }
-    return input;
+      return acc;
+    }, []);
+    return parsedInput;
   };
 
   const parse = (input) => {
     let tempNumberString = '';
-    const splittedUserInput = input.split('');
-    const preparedUserInput = prepare(splittedUserInput);
-    const parsedUserInput = preparedUserInput.reduce((acc, element, index, arr) => {
+    const splittedUserInput = typeof input === 'string' ? input.split('') : input;
+    const preparsedUserInput = parenthesesPreParse(splittedUserInput);
+    const parsedUserInput = preparsedUserInput.reduce((acc, element, index, arr) => {
       if (typeof element === 'object') {
-        acc.push(element);
+        const parsedElement = parse(element);
+        acc.push(parsedElement);
       }
       if (symbols.includes(element)) {
         if (tempNumberString !== '') {
@@ -89,6 +90,7 @@ export function ApiContextProvider({ children }) {
       }
       calculatedInput = newCalc;
       newCalc = [];
+      console.log(calculatedInput);
     }
     if (calculatedInput.length > 1) {
       console.log('Ошибка');

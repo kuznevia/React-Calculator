@@ -19,6 +19,8 @@ function Button({ symbol }) {
   const handleCancel = () => {
     setText('');
     setResult('');
+    const input = document.getElementById('inputBox');
+    input.focus();
   };
 
   if (symbol === '=') {

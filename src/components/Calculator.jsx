@@ -45,7 +45,7 @@ function Calculator() {
     <form className="calculator" onSubmit={handleSubmit}>
       <input id="inputBox" data-testid="inputBox" name="inputBox" className="inputBox" ref={inputRef} value={text} onChange={handleChange} />
       <ResultBox />
-      <Buttons text={text} setText={setText} />
+      <Buttons />
     </form>
   );
 }
