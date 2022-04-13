@@ -1,4 +1,4 @@
-# Калькулятора на React без использования eval
+# Калькулятор на React без использования eval
 
 ### Linter Status:
 [![Actions Status](https://github.com/kuznevia/calc/workflows/Linter/badge.svg)](https://github.com/kuznevia/calc/actions)
@@ -12,7 +12,8 @@
 ## Запуск проекта локально в режиме разработки
 
 1. Склонируйте репозиторий
-2. Запустите `npm start`, откройте [http://localhost:3000](http://localhost:3000) для использования калькулятора в браузере.
+2. Загрузите зависимости `npm ci`
+3. Запустите `npm start`, откройте [http://localhost:3000](http://localhost:3000) для использования калькулятора в браузере.
 
 ## Запуск тестов
 
