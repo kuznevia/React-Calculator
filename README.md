@@ -1,5 +1,7 @@
 # Калькулятор на React без использования eval
 
+### [Рабочая версия калькулятора на vercel](https://react-calculator-five-psi.vercel.app/)
+
 ### Linter Status:
 [![Actions Status](https://github.com/kuznevia/calc/workflows/Linter/badge.svg)](https://github.com/kuznevia/calc/actions)
 
