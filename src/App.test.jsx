@@ -2,18 +2,17 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 
-test('testing sum, 2+2+4', () => {
+beforeEach(() => {
   render(<App />);
-  fireEvent.change(screen.getByTestId(/inputBox/i), {
-    target: { value: '2+2+4' },
-  });
+});
+
+test('testing sum, 2+2+4', () => {
   fireEvent.click(screen.getByText(/=/i));
   const resultField = screen.getByTestId(/resultBox/i);
   expect(resultField.textContent).toBe('8');
 });
 
 test('testing sub, 2+6-10', () => {
-  render(<App />);
   fireEvent.change(screen.getByTestId(/inputBox/i), {
     target: { value: '2+6-10' },
   });
@@ -23,7 +22,6 @@ test('testing sub, 2+6-10', () => {
 });
 
 test('testing multiplication, 3*6*2', () => {
-  render(<App />);
   fireEvent.change(screen.getByTestId(/inputBox/i), {
     target: { value: '3*6*2' },
   });
@@ -33,7 +31,6 @@ test('testing multiplication, 3*6*2', () => {
 });
 
 test('testing division, 3*6/2', () => {
-  render(<App />);
   fireEvent.change(screen.getByTestId(/inputBox/i), {
     target: { value: '3*6/2' },
   });
@@ -43,7 +40,6 @@ test('testing division, 3*6/2', () => {
 });
 
 test('testing subsequence, 2+2*2', () => {
-  render(<App />);
   fireEvent.change(screen.getByTestId(/inputBox/i), {
     target: { value: '2+2*2' },
   });
@@ -53,7 +49,6 @@ test('testing subsequence, 2+2*2', () => {
 });
 
 test('testing parentheses, (2+2)*(2+2)', () => {
-  render(<App />);
   fireEvent.change(screen.getByTestId(/inputBox/i), {
     target: { value: '(2+2)*(2+2)' },
   });
@@ -63,7 +58,6 @@ test('testing parentheses, (2+2)*(2+2)', () => {
 });
 
 test('testing parentheses option 2, (2+2)*2', () => {
-  render(<App />);
   fireEvent.change(screen.getByTestId(/inputBox/i), {
     target: { value: '(2+2)*2' },
   });
@@ -73,7 +67,6 @@ test('testing parentheses option 2, (2+2)*2', () => {
 });
 
 test('testing complex, 3*(2+2)/12-66+(23*12)', () => {
-  render(<App />);
   fireEvent.change(screen.getByTestId(/inputBox/i), {
     target: { value: '3*(2+2)/12-66+(23*12)' },
   });
