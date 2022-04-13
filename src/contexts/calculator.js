@@ -39,7 +39,6 @@ const doMath = (parsedUserInput) => {
     }
     calculatedInput = newCalc;
     newCalc = [];
-    console.log(calculatedInput);
   }
   if (calculatedInput.length > 1) {
     console.log('Ошибка');
