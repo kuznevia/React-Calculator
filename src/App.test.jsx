@@ -75,7 +75,7 @@ test('testing parentheses option 2, (2+2)*2', () => {
 test('testing complex, 3*(2+2)/12-66+(23*12)', () => {
   render(<App />);
   fireEvent.change(screen.getByTestId(/inputBox/i), {
-    target: { value: '3*(2+2)/12+66-(23*12)' },
+    target: { value: '3*(2+2)/12-66+(23*12)' },
   });
   fireEvent.click(screen.getByText(/=/i));
   const resultField = screen.getByTestId(/resultBox/i);
