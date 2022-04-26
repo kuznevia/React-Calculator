@@ -22,7 +22,7 @@ function Buttons() {
       <Button symbol="+" />
       <Button symbol="00" />
       <Button symbol="0" />
-      <Button symbol="," />
+      <Button symbol="." />
       <Button symbol="=" />
     </div>
   );

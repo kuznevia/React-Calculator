@@ -53,3 +53,13 @@ test('testing complex, 3*(2+2)/12-66+(23*12)', () => {
   const resultField = runCalc('3*(2+2)/12-66+(23*12)');
   expect(resultField.textContent).toBe('211');
 });
+
+test('testing fractional number opt1, 1.5+1.5', () => {
+  const resultField = runCalc('1.5+1.5*1.5');
+  expect(resultField.textContent).toBe('3.75');
+});
+
+test('testing fractional number opt2, (3.5+5)/8.5-10.5*2.5', () => {
+  const resultField = runCalc('(3.5+5)/8.5-10.5*2.5');
+  expect(resultField.textContent).toBe('-25.25');
+});
