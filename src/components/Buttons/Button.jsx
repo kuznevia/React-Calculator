@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ApiContext } from '../../contexts/ApiContextProvider.jsx';
 
-function Button({ symbol }) {
+function Button({ symbol, inputRef }) {
   const {
     text,
     setText,
@@ -14,13 +14,13 @@ function Button({ symbol }) {
       return;
     }
     setText(text + e.target.textContent);
+    inputRef.current.focus();
   };
 
   const handleCancel = () => {
     setText('');
     setResult('');
-    const input = document.getElementById('inputBox');
-    input.focus();
+    inputRef.current.focus();
   };
 
   if (symbol === '=') {
@@ -40,6 +40,7 @@ function Button({ symbol }) {
 
 Button.propTypes = {
   symbol: PropTypes.string.isRequired,
+  inputRef: PropTypes.shape({ current: PropTypes.instanceOf(HTMLInputElement) }).isRequired,
 };
 
 export default Button;

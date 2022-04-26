@@ -1,31 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from './Button.jsx';
 
-function Buttons() {
+function Buttons({ inputRef }) {
   return (
     <div className="wrapper">
-      <Button symbol="C" />
-      <Button symbol="(" />
-      <Button symbol=")" />
-      <Button symbol="/" />
-      <Button symbol="7" />
-      <Button symbol="8" />
-      <Button symbol="9" />
-      <Button symbol="*" />
-      <Button symbol="4" />
-      <Button symbol="5" />
-      <Button symbol="6" />
-      <Button symbol="-" />
-      <Button symbol="1" />
-      <Button symbol="2" />
-      <Button symbol="3" />
-      <Button symbol="+" />
-      <Button symbol="00" />
-      <Button symbol="0" />
-      <Button symbol="." />
-      <Button symbol="=" />
+      <Button symbol="C" inputRef={inputRef} />
+      <Button symbol="(" inputRef={inputRef} />
+      <Button symbol=")" inputRef={inputRef} />
+      <Button symbol="/" inputRef={inputRef} />
+      <Button symbol="7" inputRef={inputRef} />
+      <Button symbol="8" inputRef={inputRef} />
+      <Button symbol="9" inputRef={inputRef} />
+      <Button symbol="*" inputRef={inputRef} />
+      <Button symbol="4" inputRef={inputRef} />
+      <Button symbol="5" inputRef={inputRef} />
+      <Button symbol="6" inputRef={inputRef} />
+      <Button symbol="-" inputRef={inputRef} />
+      <Button symbol="1" inputRef={inputRef} />
+      <Button symbol="2" inputRef={inputRef} />
+      <Button symbol="3" inputRef={inputRef} />
+      <Button symbol="+" inputRef={inputRef} />
+      <Button symbol="00" inputRef={inputRef} />
+      <Button symbol="0" inputRef={inputRef} />
+      <Button symbol="." inputRef={inputRef} />
+      <Button symbol="=" inputRef={inputRef} />
     </div>
   );
 }
+
+Buttons.propTypes = {
+  inputRef: PropTypes.shape({ current: PropTypes.instanceOf(HTMLInputElement) }).isRequired,
+};
 
 export default Buttons;

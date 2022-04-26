@@ -18,8 +18,7 @@ function Calculator() {
   } = useContext(ApiContext);
 
   useEffect(() => {
-    const messageInput = document.getElementById('inputBox');
-    messageInput.focus();
+    inputRef.current.focus();
   }, []);
 
   const handleSubmit = (e) => {
@@ -30,6 +29,7 @@ function Calculator() {
     try {
       const calculationResult = calculate(text);
       setResult(calculationResult);
+      setText('');
     } catch (error) {
       console.log(error);
       toast.error(error);
@@ -45,7 +45,7 @@ function Calculator() {
     <form className="calculator" onSubmit={handleSubmit}>
       <input id="inputBox" data-testid="inputBox" name="inputBox" className="inputBox" ref={inputRef} value={text} onChange={handleChange} />
       <ResultBox />
-      <Buttons />
+      <Buttons inputRef={inputRef} />
     </form>
   );
 }
