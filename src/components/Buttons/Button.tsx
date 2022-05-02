@@ -1,26 +1,27 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import { ApiContext } from '../../contexts/ApiContextProvider.jsx';
+import { ApiContext } from '../../contexts/ApiContextProvider';
+import { ApiContextType } from '../../@types/api';
+import { IButtons } from '../../@types/api';
 
-function Button({ symbol, inputRef }) {
+const Button: React.FC<IButtons> = ({ symbol, inputRef }) => {
   const {
     text,
     setText,
     setResult,
-  } = useContext(ApiContext);
+  } = useContext(ApiContext) as ApiContextType;
 
-  const handleClick = (e) => {
+  const handleClick = (e:React.ChangeEvent<HTMLButtonElement>) => {
     if (e.target.textContent === '=') {
       return;
     }
     setText(text + e.target.textContent);
-    inputRef.current.focus();
+    inputRef.current!.focus();
   };
 
   const handleCancel = () => {
     setText('');
     setResult('');
-    inputRef.current.focus();
+    inputRef.current!.focus();
   };
 
   if (symbol === '=') {
@@ -37,10 +38,5 @@ function Button({ symbol, inputRef }) {
     </button>
   );
 }
-
-Button.propTypes = {
-  symbol: PropTypes.string.isRequired,
-  inputRef: PropTypes.shape({ current: PropTypes.instanceOf(HTMLInputElement) }).isRequired,
-};
 
 export default Button;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
-import Calculator from './components/Calculator.jsx';
-import { ApiContextProvider } from './contexts/ApiContextProvider.jsx';
+import Calculator from './components/Calculator';
+import { ApiContextProvider } from './contexts/ApiContextProvider';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
   const toastAutoCloseTime = 5000;
 
   return (

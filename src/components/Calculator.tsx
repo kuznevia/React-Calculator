@@ -4,40 +4,41 @@ import React, {
   useContext,
 } from 'react';
 import { toast } from 'react-toastify';
-import ResultBox from './ResultBox.jsx';
-import Buttons from './Buttons/index.jsx';
-import { ApiContext } from '../contexts/ApiContextProvider.jsx';
+import ResultBox from './ResultBox';
+import Buttons from './Buttons/index';
+import { ApiContext } from '../contexts/ApiContextProvider';
+import { ApiContextType } from '../@types/api';
 
-function Calculator() {
-  const inputRef = useRef(null);
+const Calculator: React.FC = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const {
     calculate,
     setResult,
     text,
     setText,
-  } = useContext(ApiContext);
+  } = useContext(ApiContext) as ApiContextType;
 
   useEffect(() => {
-    inputRef.current.focus();
+    inputRef.current!.focus();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (text === '') {
       return;
     }
     try {
-      const calculationResult = calculate(text);
+      const calculationResult: number = calculate(text);
       setResult(calculationResult);
       setText('');
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
       toast.error(error);
     }
-    inputRef.current.focus();
+    inputRef.current!.focus();
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
 

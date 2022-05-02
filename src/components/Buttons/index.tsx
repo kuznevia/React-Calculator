@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Button from './Button.jsx';
+import Button from './Button';
+import { IButtons } from '../../@types/api';
 
-function Buttons({ inputRef }) {
+const Buttons: React.FC<IButtons> = ({ inputRef }) => {
   return (
     <div className="wrapper">
       <Button symbol="C" inputRef={inputRef} />
@@ -28,9 +28,5 @@ function Buttons({ inputRef }) {
     </div>
   );
 }
-
-Buttons.propTypes = {
-  inputRef: PropTypes.shape({ current: PropTypes.instanceOf(HTMLInputElement) }).isRequired,
-};
 
 export default Buttons;
