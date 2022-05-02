@@ -1,4 +1,4 @@
-# Калькулятор на React без использования eval
+# Калькулятор на React-TypeScript без использования eval
 
 ### [Рабочая версия калькулятора на vercel](https://react-calculator-five-psi.vercel.app/)
 
