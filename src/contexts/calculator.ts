@@ -37,12 +37,12 @@ const doMath = (parsedUserInput:Array<any>) => {
         newCalc.push(calculatedInput[j]);
       }
     }
+    console.log(calculatedInput);
     calculatedInput = newCalc;
     newCalc = [];
   }
   if (calculatedInput.length > 1) {
-    console.log('Ошибка');
-    return calculatedInput;
+    throw new Error('Некорректный расчет');
   }
   return calculatedInput[0];
 };

@@ -33,7 +33,8 @@ const Calculator: React.FC = () => {
       setText('');
     } catch (error: any) {
       console.log(error);
-      toast.error(error);
+      toast.error(error.message);
+      setText('');
     }
     inputRef.current!.focus();
   };

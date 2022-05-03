@@ -25,20 +25,20 @@ const parseInput = (input:string) => {
     if (typeof element === 'object') {
       const parsedElement = parseInput(element);
       acc.push(parsedElement);
-    }
-    if (symbols.includes(element)) {
+    } else if (symbols.includes(element)) {
       if (tempNumberString !== '') {
         acc.push(tempNumberString);
         tempNumberString = '';
       }
       acc.push(element);
-    }
-    if (numbers.includes(element)) {
+    } else if (numbers.includes(element)) {
       if (index === arr.length - 1) {
         tempNumberString += element;
         acc.push(tempNumberString);
       }
       tempNumberString += element;
+    } else {
+      throw new Error('Некорректный ввод');
     }
     return acc;
   }, []);
