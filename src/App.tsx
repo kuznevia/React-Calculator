@@ -27,6 +27,6 @@ const App: React.FC = () => {
       </div>
     </ApiContextProvider>
   );
-}
+};
 
 export default App;

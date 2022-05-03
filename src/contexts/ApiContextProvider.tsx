@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import parseInput from './parser';
 import doMath from './calculator';
 import { ApiContextType, IApiContextProvider } from '../@types/api';
@@ -13,18 +13,17 @@ export const ApiContextProvider: React.FC<IApiContextProvider> = ({ children }) 
     const parsedUserInput = parseInput(userInput);
     return doMath(parsedUserInput);
   };
-
-  const api = {
+  const api = useMemo(() => ({
     calculate,
     result,
     setResult,
     text,
     setText,
-  };
+  }), undefined);
 
   return (
     <ApiContext.Provider value={api}>
       {children}
     </ApiContext.Provider>
   );
-}
+};

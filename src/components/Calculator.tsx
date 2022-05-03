@@ -49,6 +49,6 @@ const Calculator: React.FC = () => {
       <Buttons inputRef={inputRef} />
     </form>
   );
-}
+};
 
 export default Calculator;

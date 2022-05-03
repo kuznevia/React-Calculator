@@ -5,6 +5,7 @@ extends:
   - plugin:react/recommended
   - airbnb
   - plugin:jest/recommended
+  - plugin:@typescript-eslint/recommended
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaFeatures:
@@ -20,3 +21,20 @@ rules:
   no-console: 0
   import/extensions: 0
   import/resolver: 0
+  import/no-unresolved: error
+  react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }]
+  react/function-component-definition: [1, {
+    "namedComponents": "arrow-function",
+    "unnamedComponents": "arrow-function",
+    }]
+settings:
+  import/parsers:
+    "@typescript-eslint/parser":
+    - ".ts"
+    - ".tsx"
+  import/resolver:
+    typescript:
+      alwaysTryTypes: true
+      project:
+      - packages/*/tsconfig.json
+      - other-packages/*/tsconfig.json

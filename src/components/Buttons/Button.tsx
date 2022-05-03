@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { ApiContext } from '../../contexts/ApiContextProvider';
-import { ApiContextType } from '../../@types/api';
-import { IButtons } from '../../@types/api';
+import { ApiContextType, IButtons } from '../../@types/api';
 
 const Button: React.FC<IButtons> = ({ symbol, inputRef }) => {
   const {
@@ -38,6 +37,6 @@ const Button: React.FC<IButtons> = ({ symbol, inputRef }) => {
       {symbol}
     </button>
   );
-}
+};
 
 export default Button;

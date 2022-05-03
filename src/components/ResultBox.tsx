@@ -10,6 +10,6 @@ const ResultBox: React.FC = () => {
       {result}
     </div>
   );
-}
+};
 
 export default ResultBox;
