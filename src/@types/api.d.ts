@@ -1,5 +1,5 @@
 export interface IApiContextProvider {
-  children: React.ReactNode, 
+  children: React.ReactNode,
 }
 
 export interface IButtons {

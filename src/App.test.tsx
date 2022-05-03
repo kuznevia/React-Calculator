@@ -6,7 +6,7 @@ beforeEach(() => {
   render(<App />);
 });
 
-const runCalc = (value) => {
+const runCalc = (value:string) => {
   fireEvent.change(screen.getByTestId(/inputBox/i), {
     target: { value },
   });

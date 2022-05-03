@@ -10,11 +10,12 @@ const Button: React.FC<IButtons> = ({ symbol, inputRef }) => {
     setResult,
   } = useContext(ApiContext) as ApiContextType;
 
-  const handleClick = (e:React.ChangeEvent<HTMLButtonElement>) => {
-    if (e.target.textContent === '=') {
+  const handleClick = (e: React.MouseEvent) => {
+    const target = e.target as HTMLButtonElement;
+    if (target.textContent === '=') {
       return;
     }
-    setText(text + e.target.textContent);
+    setText(text + target.textContent);
     inputRef.current!.focus();
   };
 
@@ -26,7 +27,7 @@ const Button: React.FC<IButtons> = ({ symbol, inputRef }) => {
 
   if (symbol === '=') {
     return (
-      <button type="submit" className="calculatorButtons">
+      <button value={symbol} type="submit" className="calculatorButtons">
         {symbol}
       </button>
     );

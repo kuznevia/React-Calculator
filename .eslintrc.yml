@@ -15,7 +15,8 @@ plugins:
   - react
   - '@typescript-eslint'
   - jest
+  - import
 rules: 
   no-console: 0
   import/extensions: 0
-  import/resolver: 0
+  import/resolver: foo

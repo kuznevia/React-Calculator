@@ -1,8 +1,8 @@
 const symbols = ['*', '/', '+', '-'];
 const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
 
-const parenthesesPreParse = (input) => {
-  const parsedInput = input.reduce((acc, element) => {
+const parenthesesPreParse = (input:Array<string>): Array<string> => {
+  const parsedInput = input.reduce((acc:Array<any>, element) => {
     acc.push(element);
     if (acc.includes('(') && acc.includes(')')) {
       const leftBracketIndex = acc.indexOf('(');
@@ -17,11 +17,11 @@ const parenthesesPreParse = (input) => {
   return parsedInput;
 };
 
-const parseInput = (input) => {
+const parseInput = (input:string) => {
   let tempNumberString = '';
   const splittedUserInput = typeof input === 'string' ? input.split('') : input;
   const preparsedUserInput = parenthesesPreParse(splittedUserInput);
-  const parsedUserInput = preparsedUserInput.reduce((acc, element, index, arr) => {
+  const parsedUserInput = preparsedUserInput.reduce((acc:Array<any>, element, index, arr) => {
     if (typeof element === 'object') {
       const parsedElement = parseInput(element);
       acc.push(parsedElement);

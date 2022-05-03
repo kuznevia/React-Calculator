@@ -1,16 +1,16 @@
-const doMath = (parsedUserInput) => {
-  const calculations = [
+const doMath = (parsedUserInput:Array<any>) => {
+  const calculations:Array<any> = [
     {
-      '*': (a, b) => a * b,
-      '/': (a, b) => a / b,
+      '*': (a:number, b:number) => a * b,
+      '/': (a:number, b:number) => a / b,
     },
     {
-      '+': (a, b) => a + b,
-      '-': (a, b) => a - b,
+      '+': (a:number, b:number) => a + b,
+      '-': (a:number, b:number) => a - b,
     },
   ];
   let calculatedInput = parsedUserInput;
-  let newCalc = [];
+  let newCalc:Array<number> = [];
   let currentOp;
   for (let i = 0; i < calculations.length; i += 1) {
     for (let j = 0; j < calculatedInput.length; j += 1) {
